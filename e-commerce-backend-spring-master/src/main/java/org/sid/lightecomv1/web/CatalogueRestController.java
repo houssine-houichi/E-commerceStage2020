@@ -1,6 +1,8 @@
 package org.sid.lightecomv1.web;
 
+import org.sid.lightecomv1.dao.CategoryRepository;
 import org.sid.lightecomv1.dao.ProductRepository;
+import org.sid.lightecomv1.entities.Category;
 import org.sid.lightecomv1.entities.Product;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,7 @@ import java.nio.file.Paths;
 @RestController
 public class CatalogueRestController {
     private ProductRepository productRepository;
+    private CategoryRepository categoryRepository;
 
     public CatalogueRestController(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -28,4 +31,11 @@ public class CatalogueRestController {
        Files.write(Paths.get(System.getProperty("user.home")+"/ecom/products/"+p.getPhotoName()),file.getBytes());
        productRepository.save(p);
     }
+
+
 }
+
+
+
+
+

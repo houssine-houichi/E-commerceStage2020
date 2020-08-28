@@ -15,6 +15,16 @@ public class Category implements Serializable {
     private String name;
     private String photo;
     private String description;
+
+    public Collection<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Collection<Product> products) {
+        this.products = products;
+    }
+
     @OneToMany(mappedBy = "category")
+
     private Collection<Product> products;
 }
